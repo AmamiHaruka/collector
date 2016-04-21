@@ -24,5 +24,6 @@ public class App
 		Long time = Long.valueOf(ConfigUtil.getObject("terminal_time"));
 		t.schedule(new CrawlerTask(), date.getTime(),time*1000*60
 				);
+		
     }
 }
