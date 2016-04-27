@@ -163,9 +163,7 @@ public class Crawler {
 			doc = Jsoup.connect(url).timeout(0).get();
 		} catch (IOException e) {
 			log.error("获取温度失败",e);
-
 			return "";
-
 		}
 		Elements E = doc.select(".weather_day_brief_hours36 li");
 		String temp =E.get(0).html();
@@ -179,9 +177,7 @@ public class Crawler {
 			doc = Jsoup.connect(url).timeout(0).get();
 		} catch (IOException e) {
 			log.error("获取湿度失败",e);
-
 			return "";
-
 		}
 		Elements E = doc.select(".weather_day_brief_hours36 li");
 		String humid =E.get(9).html();

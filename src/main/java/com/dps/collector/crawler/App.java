@@ -2,11 +2,10 @@ package com.dps.collector.crawler;
 
 import java.sql.SQLException;
 import java.util.Calendar;
-
 import java.util.Timer;
 
-
 import com.dps.collector.task.CrawlerTask;
+import com.dps.collector.task.WeatherForecastCrawlerTask;
 import com.dps.collector.util.ConfigUtil;
 
 /**
@@ -22,8 +21,10 @@ public class App
 				date.get(Calendar.DATE), 0, 0, 0);
 		Timer t = new Timer();
 		Long time = Long.valueOf(ConfigUtil.getObject("terminal_time"));
-		t.schedule(new CrawlerTask(), date.getTime(),time*1000*60
-				);
-
+		Long time1 = Long.valueOf(ConfigUtil.getObject("forecast_time"));
+		
+		//t.schedule(new CrawlerTask(), date.getTime(),time*1000*60);
+		t.schedule(new WeatherForecastCrawlerTask(), date.getTime(), time1*1000*60*60);
+		
     }
 }
